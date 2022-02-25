@@ -1,26 +1,32 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <app-header v-if="isLoggedIn()" />
+  <app-header-guest v-else />
+
+  <div class="container">
+    <router-view />
+  </div>
+
+  <app-footer />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from "./components/headers/Header.vue";
+import GuestHeader from "./components/headers/GuestHeader.vue";
+import Footer from "./components/footers/Footer.vue";
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
-  }
-}
+    appHeaderGuest: GuestHeader,
+    appHeader: Header,
+    appFooter: Footer,
+  },
+  created() {
+    this.$store.dispatch("initStocks");
+  },
+  methods: {
+    isLoggedIn() {
+      return this.$store.getters.isLoggedIn;
+    },
+  },
+};
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

@@ -22,3 +22,8 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+npx sequelize seed:create --name user-seeder
+npx sequelize init
+npx sequelize db:seed:all
