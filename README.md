@@ -1,4 +1,4 @@
-# learning3-2
+# Node.js and Vue.js learning project
 
 ## Project setup
 ```
@@ -23,7 +23,17 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
+# SQL ORM - Sequelize
 
-npx sequelize seed:create --name user-seeder
-npx sequelize init
+### Migrate database tables
+```
+npx sequelize db:migrate
+```
+
+### Seed database tables
+```
 npx sequelize db:seed:all
+```
+
+### Sequelize config location
+Located in: src\database\config\config.json
